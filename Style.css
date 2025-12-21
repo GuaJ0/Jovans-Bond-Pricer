@@ -1,4 +1,65 @@
-body{
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif ;
-    font-size: 1em;
+body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 1em;
+  background-color: #111;
+  color: #fff;
+}
+
+h1, h2, h3, h4 {
+  margin: 0.5em 0;
+}
+
+.bonds-container {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.bond-panel {
+  flex: 1;
+  border: 1px solid #444;
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: #181818;
+}
+
+.bond-panel label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.bond-panel input[type="number"] {
+  width: 80px;
+  margin-right: 0.5rem;
+}
+
+.bond-panel input[type="range"] {
+  width: 200px;
+}
+
+.comparison {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-top: 1px solid #444;
+}
+
+.formula-panel {
+  margin-top: 1.5rem;
+}
+
+.formula-row {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.formula-box {
+  flex: 1;
+}
+
+/* simple responsive tweak */
+@media (max-width: 800px) {
+  .bonds-container {
+    flex-direction: column;
+  }
 }
