@@ -1,0 +1,74 @@
+<html>
+<head>
+  <title>Jovan's Bond Pricer</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)'], ['\\[','\\]']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+  <h1>Bond Pricer Calculator</h1>
+
+  <form id="bondForm">
+    <label>Face Value ($):
+      <input type="number" id="faceValue" value="100" min="0" required />
+    </label><br/>
+
+    <label>Coupon Rate (%):
+      <input type="number" step="1" id="couponRate" value="10" min="0" max="100" required />
+    </label><br/>
+
+    <label>Years:
+      <input type="number" step="1" id="years" value="10" min="1" required />
+    </label><br/>
+
+    <label>Yield to Maturity (%):
+      <input type="number" step="1" id="yield" value="1" min="0" max="100" required />
+    </label><br/>
+
+    <label>Payments per Year:
+      <input type="number" id="PPY" value="1" min="1" required />
+    </label><br/>
+
+    <label> Decimal: 
+      <input type="number" id="Dec" value = "2" min="2" max="8" required />
+    </label><br/>
+
+    <fieldset>
+      <legend>Type of Bond</legend>
+      <label>
+        <input type="radio" name="bondType" value="Normal" checked>
+        Normal Coupon Bond
+      </label><br/>
+      <label>
+        <input type="radio" name="bondType" value="Perpetual">
+        Perpetual Bond
+      </label><br/>
+      <label>
+        <input type="radio" name="bondType" value="Zero">
+        Zero Coupon Bond
+      </label>
+    </fieldset>
+  </form>
+
+  <h2>Bond Price: </h2>
+  <h2 id="bondPrice"></h2>
+  <div id="formula" style="float: right; width: 1200px; margin-top: 50px;"></div>
+
+  <h2>Effective Rate:</h2>
+  <h3 id="effective"></h3>
+
+  <h2>Coupon Price:</h2>
+  <h3 id="coupon"></h3>
+
+  <h2>Number of Payments:</h2>
+  <h3 id="totalPayments"></h3>
+
+  <script src="FormulaBuilder.js"></script>
+  <script src="Calc.js"></script>
+</body>
+</html>
