@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Jovan's Bond Pricer</title>
@@ -11,62 +12,140 @@
   <link rel="stylesheet" href="Style.css">
 </head>
 <body>
-  <h1>Bond Pricer Calculator</h1>
+  <h1>Jovan's Bond Pricer</h1>
 
-  <form id="bondForm">
-    <label>Face Value ($):
-      <input type="number" id="faceValue" value="100" min="0" required />
-    </label><br/>
+  <div class="bonds-container">
 
-    <label>Coupon Rate (%):
-      <input type="number" step="1" id="couponRate" value="10" min="0" max="100" required />
-    </label><br/>
+    <div class="bond-panel">
+      <h2>Bond A</h2>
+      <form id="bondFormA">
+        <label>Face Value ($):
+          <input type="number" id="faceValueA" value="100" min="0" required />
+          <input type="range" id="faceValueSliderA" min="0" max="1000" step="10" value="100">
+        </label><br/>
 
-    <label>Years:
-      <input type="number" step="1" id="years" value="10" min="1" required />
-    </label><br/>
+        <label>Coupon Rate (%):
+          <input type="number" step="0.01" id="couponRateA" value="10" min="0" required />
+          <input type="range" id="couponRateSliderA" min="0" max="20" step="0.1" value="10">
+        </label><br/>
 
-    <label>Yield to Maturity (%):
-      <input type="number" step="1" id="yield" value="1" min="0" max="100" required />
-    </label><br/>
+        <label>Years:
+          <input type="number" id="yearsA" value="10" min="0" required />
+          <input type="range" id="yearsSliderA" min="0" max="50" step="1" value="10">
+        </label><br/>
 
-    <label>Payments per Year:
-      <input type="number" id="PPY" value="1" min="1" required />
-    </label><br/>
+        <label>Yield to Maturity (%):
+          <input type="number" step="0.01" id="yieldA" value="1" min="0" required />
+          <input type="range" id="yieldSliderA" min="0" max="20" step="0.1" value="1">
+        </label><br/>
 
-    <label> Decimal: 
-      <input type="number" id="Dec" value = "2" min="2" max="8" required />
-    </label><br/>
+        <label>Payments per Year:
+          <input type="number" id="PPYA" value="1" min="1" required />
+          <input type="range" id="PPYSliderA" min="1" max="12" step="1" value="1">
+        </label><br/>
 
-    <fieldset>
-      <legend>Type of Bond</legend>
-      <label>
-        <input type="radio" name="bondType" value="Normal" checked>
-        Normal Coupon Bond
-      </label><br/>
-      <label>
-        <input type="radio" name="bondType" value="Perpetual">
-        Perpetual Bond
-      </label><br/>
-      <label>
-        <input type="radio" name="bondType" value="Zero">
-        Zero Coupon Bond
-      </label>
-    </fieldset>
-  </form>
+        <label>Decimal:
+          <input type="number" id="DecA" value="2" min="0" max="6" required />
+        </label><br/>
 
-  <h2>Bond Price: </h2>
-  <h2 id="bondPrice"></h2>
-  <div id="formula" style="float: right; width: 1200px; margin-top: 50px;"></div>
+        <fieldset>
+          <legend>Type of Bond</legend>
+          <label>
+            <input type="radio" name="bondTypeA" value="Normal" checked>
+            Normal Coupon Bond
+          </label><br/>
+          <label>
+            <input type="radio" name="bondTypeA" value="Perpetual">
+            Perpetual Bond
+          </label><br/>
+          <label>
+            <input type="radio" name="bondTypeA" value="Zero">
+            Zero Coupon Bond
+          </label>
+        </fieldset>
 
-  <h2>Effective Rate:</h2>
-  <h3 id="effective"></h3>
+        <button type="button" id="resetA">Reset Bond A</button>
+      </form>
 
-  <h2>Coupon Price:</h2>
-  <h3 id="coupon"></h3>
+      <h3>Bond Price A: <span id="bondPriceA"></span></h3>
+      <h4>Effective Rate: <span id="effectiveA"></span></h4>
+      <h4>Coupon Price: <span id="couponA"></span></h4>
+      <h4>Number of Payments: <span id="totalPaymentsA"></span></h4>
+    </div>
 
-  <h2>Number of Payments:</h2>
-  <h3 id="totalPayments"></h3>
+    <div class="bond-panel">
+      <h2>Bond B</h2>
+      <form id="bondFormB">
+        <label>Face Value ($):
+          <input type="number" id="faceValueB" value="100" min="0" required />
+          <input type="range" id="faceValueSliderB" min="0" max="1000" step="10" value="100">
+        </label><br/>
+
+        <label>Coupon Rate (%):
+          <input type="number" step="0.01" id="couponRateB" value="5" min="0" required />
+          <input type="range" id="couponRateSliderB" min="0" max="20" step="0.1" value="5">
+        </label><br/>
+
+        <label>Years:
+          <input type="number" id="yearsB" value="10" min="0" required />
+          <input type="range" id="yearsSliderB" min="0" max="50" step="1" value="10">
+        </label><br/>
+
+        <label>Yield to Maturity (%):
+          <input type="number" step="0.01" id="yieldB" value="2" min="0" required />
+          <input type="range" id="yieldSliderB" min="0" max="20" step="0.1" value="2">
+        </label><br/>
+
+        <label>Payments per Year:
+          <input type="number" id="PPYB" value="1" min="1" required />
+          <input type="range" id="PPYSliderB" min="1" max="12" step="1" value="1">
+        </label><br/>
+
+        <label>Decimals:
+          <input type="number" id="DecB" value="2" min="0" max="6" required />
+        </label><br/>
+
+        <fieldset>
+          <legend>Type of Bond</legend>
+          <label>
+            <input type="radio" name="bondTypeB" value="Normal" checked>
+            Normal Coupon Bond
+          </label><br/>
+          <label>
+            <input type="radio" name="bondTypeB" value="Perpetual">
+            Perpetual Bond
+          </label><br/>
+          <label>
+            <input type="radio" name="bondTypeB" value="Zero">
+            Zero Coupon Bond
+          </label>
+        </fieldset>
+
+        <button type="button" id="resetB">Reset Bond B</button>
+      </form>
+
+      <h3>Bond Price B: <span id="bondPriceB"></span></h3>
+      <h4>Effective Rate: <span id="effectiveB"></span></h4>
+      <h4>Coupon Price: <span id="couponB"></span></h4>
+      <h4>Number of Payments: <span id="totalPaymentsB"></span></h4>
+    </div>
+  </div>
+
+  <div class="comparison">
+    <h2>Comparison</h2>
+    <p>Price difference (A − B): <span id="priceDiff"></span></p>
+  </div>
+
+  <div class="formula-row">
+    <div class="formula-box">
+      <h3>Bond A formula</h3>
+      <div id="formulaA"></div>
+    </div>
+    <div class="formula-box">
+      <h3>Bond B formula</h3>
+      <div id="formulaB"></div>
+    </div>
+  </div>
 
   <script src="FormulaBuilder.js"></script>
   <script src="Calc.js"></script>
