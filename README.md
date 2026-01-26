@@ -37,5 +37,6 @@ Structure
 	•	 Calc.js  – pricing logic, event wiring, sliders, and reset functionality
 	•	 FormulaBuilder.js  – LaTeX generation and MathJax rendering for bond formulas
 
-	Bond_Pricer_Screenshot1.png
-	Bond_Pricer_Screenshot2.png
+!(Bond_Pricer_Screenshot1.png)
+!(Bond_Pricer_Screenshot2.png)
+
