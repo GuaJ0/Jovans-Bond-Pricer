@@ -1,6 +1,7 @@
 # Jovans Bond Pricer
 A web-based bond pricing tool that calculates the price of normal coupon, perpetual and zero‑coupon bonds, with side‑by‑side comparison between two bonds. 
 The app is built with HTML, CSS and JavaScript.
+![Defalt page](Bond_Pricer_Screenshot2.png)
 
 Features
 	•	Three bond types
@@ -18,6 +19,7 @@ Features
 	•	Separate formula panels for Bond A and Bond B
 	•	Clean UI for finance use cases
 	•	Output cards for bond price, effective rate, coupon payment and number of payments
+	![Comparing different bond types](Bond_Pricer_Screenshot1.png)
   
 How it works
 	•	The app prices bonds by discounting future cash flows using the specified yield to maturity and coupon schedule.
@@ -38,6 +40,6 @@ Structure
 	•	 FormulaBuilder.js  – LaTeX generation and MathJax rendering for bond formulas
 
 
-![Defalt page](Bond_Pricer_Screenshot2.png)
-![Comparing different bond types](Bond_Pricer_Screenshot1.png)
+
+
 
