@@ -1,12 +1,54 @@
+:root {
+  --bg: #111;
+  --panel-bg: #181818;
+  --text: #fff;
+  --border: #444;
+  --muted: #aaa;
+  --accent: #4ea1ff;
+  --error: #ff6b6b;
+  --table-header-bg: #222;
+  --table-row-alt: #1f1f1f;
+}
+
+:root[data-theme="light"] {
+  --bg: #f5f5f5;
+  --panel-bg: #ffffff;
+  --text: #111;
+  --border: #ccc;
+  --muted: #555;
+  --accent: #2563eb;
+  --error: #c0392b;
+  --table-header-bg: #eee;
+  --table-row-alt: #f7f7f7;
+}
+
 body {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 1em;
-  background-color: #111;
-  color: #fff;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 h1, h2, h3, h4 {
   margin: 0.5em 0;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.page-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.page-actions button {
+  cursor: pointer;
 }
 
 .bonds-container {
@@ -17,10 +59,11 @@ h1, h2, h3, h4 {
 
 .bond-panel {
   flex: 1;
-  border: 1px solid #444;
+  min-width: 0;
+  border: 1px solid var(--border);
   padding: 1rem;
   border-radius: 8px;
-  background-color: #181818;
+  background-color: var(--panel-bg);
 }
 
 .bond-panel label {
@@ -35,12 +78,104 @@ h1, h2, h3, h4 {
 
 .bond-panel input[type="range"] {
   width: 200px;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.errors {
+  color: var(--error);
+  font-size: 0.9em;
+  margin-bottom: 0.5rem;
+}
+
+.errors:empty {
+  display: none;
+}
+
+.yield-field, .market-price-field {
+  display: inline-block;
+}
+
+.yield-curve-panel {
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: var(--panel-bg);
+  margin-bottom: 1.5rem;
+}
+
+.curve-hint {
+  color: var(--muted);
+  font-size: 0.85em;
+  margin: 0.25rem 0 0.75rem;
+}
+
+.curve-presets {
+  margin-bottom: 0.75rem;
+}
+
+.curve-presets button {
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+
+.curve-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.curve-inputs input[type="number"] {
+  width: 70px;
+}
+
+#curveChart {
+  max-width: 100%;
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.schedule-details {
+  margin-top: 1rem;
+}
+
+.schedule-details summary {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.schedule-details table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 0.5rem;
+  font-size: 0.85em;
+}
+
+.schedule-details th, .schedule-details td {
+  border: 1px solid var(--border);
+  padding: 0.25rem 0.5rem;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.schedule-details th {
+  background-color: var(--table-header-bg);
+}
+
+.schedule-details tbody tr:nth-child(even) {
+  background-color: var(--table-row-alt);
 }
 
 .comparison {
   margin-top: 1.5rem;
   padding: 1rem;
-  border-top: 1px solid #444;
+  border-top: 1px solid var(--border);
 }
 
 .formula-panel {
@@ -51,15 +186,36 @@ h1, h2, h3, h4 {
   display: flex;
   gap: 2rem;
   margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .formula-box {
   flex: 1;
+  min-width: 0;
+}
+
+.formula-box > div {
+  overflow-x: auto;
 }
 
 /* simple responsive tweak */
 @media (max-width: 800px) {
   .bonds-container {
     flex-direction: column;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .curve-inputs {
+    gap: 0.5rem 1rem;
+  }
+
+  .bond-panel input[type="range"] {
+    width: 100%;
+    display: block;
+    margin-top: 0.25rem;
   }
 }

@@ -1,0 +1,13 @@
+{
+  "name": "jovans-bond-pricer",
+  "version": "1.0.0",
+  "description": "A web-based bond pricing tool (Normal, Perpetual, Zero-coupon) with a yield curve, YTM solver, duration/convexity, and a two-bond comparison.",
+  "private": true,
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "devDependencies": {
+    "vitest": "^4.1.11"
+  }
+}
