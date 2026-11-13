@@ -2,9 +2,9 @@
 A web-based bond pricing tool that calculates the price of normal coupon, perpetual and zero‑coupon bonds, with side‑by‑side comparison between two bonds, a yield curve, a yield-to-maturity solver, duration/convexity, and accrued interest.
 The app is a dependency-free static site — open `index.html` directly, no build step required. Node/npm is only needed if you want to run the test suite.
 
-![Defalt page](Bond_Pricer_Screenshot2.png)
+![Default page](Bond_Pricer_Screenshot2.png)
 
-**Live demo:** _add your GitHub Pages URL here once deployed (see Deployment below)_
+**Testing:** 25 Vitest unit tests cover the pricing, yield solver, duration/convexity and yield curve logic, and run automatically on every push through GitHub Actions.
 
 [![Tests](https://github.com/GuaJ0/Jovans-Bond-Pricer/actions/workflows/test.yml/badge.svg)](https://github.com/GuaJ0/Jovans-Bond-Pricer/actions/workflows/test.yml)
 
